@@ -1,3 +1,6 @@
 [submodule "android"]
 	path = android
 	url = https://github.com/suicsoft/Little-PDF-Merge-Android
+[submodule "Mono.NET"]
+	path = Mono.NET
+	url = https://github.com/suicsoft/Little-PDF-Merge-net
