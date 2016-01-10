@@ -2,7 +2,7 @@
 # Little's PDF Merge
 
 Free , as fast as a running 🐕 dog ,and open source PDF merger with support for multiple platforms
-<iframe src="https://raw.githubusercontent.com/SuicSoft/Little-PDF-Merge/master/video.webm"></iframe>
+![The cute and cuddly dog](video.gif)]
 
 Free to use, distrubute and modify 
 **You can't sell this, and remove all '*SuicSoft*' stuff if you're using it **
