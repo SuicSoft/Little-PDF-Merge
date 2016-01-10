@@ -1,0 +1,6 @@
+cd Android
+./gradlew assembleDebug
+cd ..
+mkdir -p ./Release
+mkdir -p ./Release/Android
+copy ./Android/app/build/outputs/apk/app-debug.apk ./Release/Android/app-debug.apk
