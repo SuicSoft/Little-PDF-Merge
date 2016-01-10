@@ -3,7 +3,7 @@
 
 Free , as fast as a running 🐕 dog ,and open source PDF merger with support for multiple platforms
  <video width="320" height="240" controls>
-  <source src="video.webm" type="video/webm">
+  <source src="https://raw.githubusercontent.com/SuicSoft/Little-PDF-Merge/master/video.webm" type="video/webm">
   Your browser does not support the HTML5/video tag.
 </video> 
 
