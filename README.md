@@ -2,7 +2,10 @@
 # Little's PDF Merge
 
 Free , as fast as a running 🐕 dog ,and open source PDF merger with support for multiple platforms
-![Screenshot of Little's PDF Merge](web/lpm.PNG)
+ <video width="320" height="240" controls>
+  <source src="video.webm" type="video/webm">
+  Your browser does not support the HTML5/video tag.
+</video> 
 
 Free to use, distrubute and modify 
 **You can't sell this, and remove all '*SuicSoft*' stuff if you're using it **
