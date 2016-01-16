@@ -7,7 +7,7 @@ Free , as fast as a running 🐕 dog ,and open source PDF merger with support fo
 Free to use, distrubute and modify 
 **You can't sell this, and remove all '*SuicSoft*' stuff if you're using it **
 
-**NO COPYING OF OUR USER INTERFACE IS ALLOWED, IF YOU WANT TO MAKE A MATERIAL DESIGN WINDOWS PROGRAM, CHECK OUT MATERIAL-DESIGN-IN-XAML-TOOLKIT, AND USE IT YOURSELF**
+**NO COPYING OF OUR USER INTERFACE IS ALLOWED.*
 (keep the dog if you like!) - read more in [**LICENSE.md**](License.md) 
 <!---Replace developer with correct branch--->
 <!---Appveyor build status--->
@@ -25,30 +25,24 @@ I'm Suici. Say that like Sooky. I'm not as popular as Android, Duo or the Octoca
 What Am I? I'm a dog, bearded collie puppy! - And I was drawn in Fresh Paint for the Logo - But I'm real!
 
 #How to install this build
-The developer branch is updated daily or at least a few times a week.
-To install, run the setup.exe file in releases folder . It should be installed on your pc and will be updated each day.
+The developer (on each repo) branch is updated daily or at least a few times a week.
+To install the Android version an APK will be located in ```./Release/Android/app-debug.apk``` (and ```app-release.apk``` for release) and side-load it on to your device. Little's PDF Merge will check for updates every time you open it
+To install the Windows version an installer and ```LPM.ZIP``` will be located in ```./Release/Windows/setup.exe``` or ```./Release/Windows/LPM.ZIP```. Little's PDF Merge will update check for updats when you open it (except for ```LPM.EXE```
 
 #How do I build it from the source.
-It is very easy to do on Windows (tested on Windows 10). To do it, open a git shell and type
+It is very easy to do (tested on Elementary OS freya and Windows 10)
+
+For Windows (open command prompt with WIN + R and type ```cmd```)
 ```
 git clone https://github.com/suicsoft/little-pdf-merge.git
-edit the code and stuff here if needed
 cd little-pdf-merge
-./build.bat
+build-all.bat
+build-all-dbg.bat (use if you want debug builds instead of release)
 ```
-You should have a shortcut to Little's PDF Merge on your desktop.
-Do not delete the cloned repo because the exe used to run Little's PDF Merge is stored in it.
-#How do I use Little's PDF Merge Core
-LPM.Core (Little's PDF Merge Core) is a free and open source pdf merger library for C#.NET, VB.NET and other .NET programming languages.
-
-For c#.
-```cs
- using (SuicSoft.LittleSoft.LittlesPDFMerge.Core.Combiner comb = new SuicSoft.LittleSoft.LittlesPDFMerge.Core.Combiner())
-                    {
-                        comb.OutputPath = "youroutputpath";
-                        comb.AddFile(System.IO.File.ReadAllBytes("somepath"), null); //Replace null with password as a byte array if needed
-                        comb.AddFile(System.IO.File.ReadAllBytes("somepath"), null); //Replace null with password as a byte array if needed
-                    }
+For Linux (open terminal. Note that this will NOT build the Windows builds)
 ```
-
-
+git clone https://github.com/suicsoft/little-pdf-merge.git
+cd little-pdf-merge
+./build-all.sh
+./build-all-dbg.sh (use if you want debug builds instead of release)
+```
