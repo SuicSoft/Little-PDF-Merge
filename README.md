@@ -27,7 +27,7 @@ What Am I? I'm a dog, bearded collie puppy! - And I was drawn in Fresh Paint for
 #How to install this build
 The developer (on each repo) branch is updated daily or at least a few times a week.
 To install the Android version an APK will be located in ```./Release/Android/app-debug.apk``` (and ```app-release.apk``` for release) and side-load it on to your device. Little's PDF Merge will check for updates every time you open it
-To install the Windows version an installer and ```LPM.ZIP``` will be located in ```./Release/Windows/setup.exe``` or ```./Release/Windows/LPM.ZIP```. Little's PDF Merge will update check for updats when you open it (except for ```LPM.EXE```
+To install the Windows version an installer and ```LPM.ZIP``` will be located in ```./Release/Windows/setup.exe``` or ```./Release/Windows/LPM.ZIP```. Little's PDF Merge will update check for updats when you open it (except for ```LPM.ZIP```)
 
 #How do I build it from the source.
 It is very easy to do (tested on Elementary OS freya and Windows 10)
