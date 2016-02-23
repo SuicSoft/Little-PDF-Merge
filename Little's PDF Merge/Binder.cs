@@ -168,25 +168,21 @@ namespace SuicSoft.LittlesPDFMerge.Windows
             try
             {
                 //Check if the file contains the pdf header
-                    using (PdfReader reader = password != null ? new PdfReader(file, ProtectedData.Unprotect(pass, e, DataProtectionScope.CurrentUser)) : protectedpass ? new PdfReader(file) : new PdfReader(file, pass))
-                    {
-                        //Copy the pages the new PDF doocument.
-                        for (var j = 1; j <= reader.NumberOfPages; j++)
-                        {
-                            var size = reader.GetPageSizeWithRotation(j);
-                            //Set the page size.
-                            b.SetPageSize(size);
-                            //Create a new page.
-                            b.NewPage();
-                            var k = c.GetImportedPage(reader, j);
-                            //Add the extracted page.
-                            c.AddPage(k);
-                        }
-                    }
-
-
-
-                //Clear password from memory
+                PdfReader reader = password != null ? new PdfReader(file, ProtectedData.Unprotect(pass, e, DataProtectionScope.CurrentUser)) : protectedpass ? new PdfReader(file) : new PdfReader(file, pass);
+                //Copy the pages the new PDF doocument.
+                for (var j = 1; j <= reader.NumberOfPages; j++)
+                {
+                    var size = reader.GetPageSizeWithRotation(j);
+                    //Set the page size.
+                    b.SetPageSize(size);
+                    //Create a new page.
+                    b.NewPage();
+                    var k = c.GetImportedPage(reader, j);
+                    //Add the extracted page.
+                    c.AddPage(k);
+                }
+                reader.Close();
+                //Clear password from memory for security reasons. OllyDbg can search the memory for a string so we have to erase it
                 Array.Clear(password != null ? pass : new byte[0], 0, password != null ? pass.Length : 0);
             }
             catch
@@ -221,7 +217,7 @@ namespace SuicSoft.LittlesPDFMerge.Windows
             {
                 // Free managed resources.
                 // Add producer as Little's PDF Merge using TextSharp
-                PdfString l = new PdfString("SuicSoft Little's PDF Merge 2.2.1 (http://www.suicsoft.com) using " + iTextSharp.text.Version.GetInstance().GetVersion);
+                PdfString l = new PdfString("SuicSoft Little's PDF Merge (http://www.suicsoft.com)");
                 c.Info.Put(PdfName.PRODUCER, l);
                 c.Info.Put(PdfName.CREATOR, l);
                 l = null;
@@ -242,10 +238,9 @@ namespace SuicSoft.LittlesPDFMerge.Windows
                     if (Password != null)
                         using (Stream output = new FileStream(d, FileMode.Create, FileAccess.Write, FileShare.None))
                         {
-                            using (PdfReader reader = new PdfReader(a.GetBuffer()))
-                            {
-                                PdfEncryptor.Encrypt(reader, output, true, Password.ToUnsecureString(), Password.ToUnsecureString(), PdfWriter.ALLOW_SCREENREADERS);
-                            }
+                            PdfReader reader = new PdfReader(a.GetBuffer());
+                            PdfEncryptor.Encrypt(reader, output, true, Password.ToUnsecureString(), Password.ToUnsecureString(), PdfWriter.ALLOW_SCREENREADERS);
+                            reader.Close();
                         }
                     else
                         File.WriteAllBytes(d, a.GetBuffer());
@@ -266,11 +261,9 @@ namespace SuicSoft.LittlesPDFMerge.Windows
             {
                 try
                 {
-                    using (PdfReader m = new PdfReader(file))
-                    {
-                        //Return Ok or Protected
-                        return !m.IsEncrypted() || (m.Permissions & PdfWriter.ALLOW_COPY) == PdfWriter.ALLOW_COPY ? SourceTestResult.Ok : SourceTestResult.Protected;
-                    }
+                    PdfReader m = new PdfReader(file);
+                    //Return Ok or Protected
+                    return !m.IsEncrypted() || (m.Permissions & PdfWriter.ALLOW_COPY) == PdfWriter.ALLOW_COPY ? SourceTestResult.Ok : SourceTestResult.Protected;
                 }
                 catch (iTextSharp.text.exceptions.InvalidPdfException)
                 {

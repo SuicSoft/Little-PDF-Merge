@@ -33,22 +33,23 @@ namespace SuicSoft.LittlesPDFMerge.Windows
                             break;
                         case Combiner.SourceTestResult.Protected:
                             #region Protected
-                            PdfReader.unethicalreading = false;
                             try
                             {
-                                using (PdfReader pdfreader = new PdfReader(args[1]))
+                                PdfReader pdfreader = new PdfReader(args[1]);
                                     if (!pdfreader.IsOpenedWithFullPermissions)
                                         Console.WriteLine("ok");
+                                pdfreader.Close();
                             }
                             catch
                             {
                                 try
                                 {
                                     if (args.ElementAtOrDefault(2) != null)
-                                        using (PdfReader pdfreader = new PdfReader(args[1], System.Text.Encoding.Default.GetBytes(args[2])))
-                                        {
-                                            Console.WriteLine("ok");
-                                        }
+                                    {
+                                        PdfReader pdfreader = new PdfReader(args[1], System.Text.Encoding.Default.GetBytes(args[2]));
+                                        Console.WriteLine("ok");
+                                        pdfreader.Close();
+                                    }
                                     else
                                         Console.WriteLine("pn"); //The user needs to enter the password.
                                 }

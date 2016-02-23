@@ -6,7 +6,6 @@ using System.Linq;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using EasyHook;
 using System.Collections.Generic;
 using iTextSharp.text.pdf;
 using System.IO.Pipes;

@@ -1,7 +1,6 @@
 ﻿using iTextSharp.text.pdf;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Practices.Prism.Commands;
 using Microsoft.Win32;
 using System;
 using System.Linq;
@@ -13,6 +12,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using Prism.Commands;
+
 namespace SuicSoft.LittlesPDFMerge.Windows
 {
     class MergerViewModel : System.ComponentModel.INotifyPropertyChanged
@@ -158,7 +159,7 @@ namespace SuicSoft.LittlesPDFMerge.Windows
                 try
                 {
                     //Use iTextSharp.text.pdf.PdfReader to open the pdf.
-                    new PdfReader(file, System.Text.Encoding.Default.GetBytes(result)).Dispose();
+                    new PdfReader(file, System.Text.Encoding.Default.GetBytes(result)).Close();
                     //Add the file to the listbox as a secure string. Won't reach here if password is wrong.
                     Files.Add(new PDFItem(file, null));
                 }

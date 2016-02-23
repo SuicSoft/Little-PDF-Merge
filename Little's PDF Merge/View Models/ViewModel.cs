@@ -1,14 +1,7 @@
-﻿using Microsoft.Practices.Prism.Commands;
+﻿using Prism.Commands;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace SuicSoft.LittlesPDFMerge.Windows
 {
@@ -32,7 +25,7 @@ namespace SuicSoft.LittlesPDFMerge.Windows
         {
             get
             {
-                mOpenSupportWebsiteCommand = mOpenSupportWebsiteCommand == null ? new DelegateCommand<string>(OpenWebsite, CanAccessWeb) : mOpenSupportWebsiteCommand;
+                mOpenSupportWebsiteCommand = mOpenSupportWebsiteCommand == null ? new DelegateCommand<String>(OpenWebsite, CanAccessWeb) : mOpenSupportWebsiteCommand;
                 return mOpenSupportWebsiteCommand;
             }
         }

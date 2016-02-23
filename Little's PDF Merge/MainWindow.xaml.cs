@@ -4,7 +4,6 @@ using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 //For the registry
 using Microsoft.Win32;
-using PluginBase;
 using Squirrel;
 using System;
 using System.Collections.Generic;

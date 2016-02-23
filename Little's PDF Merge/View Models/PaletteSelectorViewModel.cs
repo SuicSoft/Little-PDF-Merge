@@ -21,23 +21,10 @@ using System.Collections.Generic;
 using System.Windows.Input;
 //For those linq stuff.
 using System.Linq;
-//For disk I/O.
-using System.IO;
-//WPF.
-using System.Windows;
-//Registry and dialogs.
-using Microsoft.Win32;
-using Microsoft.Practices.Prism.Commands;
 using System;
-using System.Windows.Media.Animation;
-using System.Windows.Controls;
 using System.Threading;
-using System.Windows.Media;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+using Prism.Commands;
 
 namespace SuicSoft.LittlesPDFMerge.Windows
 {
